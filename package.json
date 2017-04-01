@@ -1,0 +1,19 @@
+{
+  "name": "rps",
+  "version": "1.0.0",
+  "description": "Rock-Paper-Scissors",
+  "main": "scripts/main.js",
+  "scripts": {
+    "start": "node .",
+    "test": "mocha --reporter spec tests",
+    "watch-test": "mocha --watch --reporter spec tests"
+  },
+  "author": "Greg-Star",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "random-js": "^1.0.8"
+  }
+}
