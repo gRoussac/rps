@@ -7,11 +7,13 @@ Run `npm install` (in package directory, no arguments) [npmjs](https://docs.npmj
 
 ## Start
 
-Run `npm start` will start by default a game of 1000 rounds.
+Run `npm start` will start by default a game of 1000 rounds [npmjs](https://docs.npmjs.com/cli/start).
 
-Use the `-- -r, --rounds` flag for playing another number of match rounds  [npmjs](https://docs.npmjs.com/cli/start).
+Use the `-- -r, --rounds` flag for playing another number of match rounds.
 
-Caution : the end of the options delimiteer -- is important. Ex : `npm start -- -r 5000`.
+Caution : the end of the options delimiter -- is important.
+
+Ex : `npm start -- -r 5000`.
 
 ## Build
 
