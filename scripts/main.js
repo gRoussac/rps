@@ -25,7 +25,7 @@
     }
 
     game
-      .config({rounds})
+      .setRounds({rounds})
       .start()
       .stats();
   });

@@ -1,9 +1,9 @@
 (function(){
   "use strict";
 
-  function Match(Config) {
+  function Match(config) {
 
-    const choices = new Set(Config.DEFAULT_CHOICES);
+    const choices = new Set(config.DEFAULT_CHOICES);
 
     function _isTie(choices) {
       if (!choices.length) { return; }
@@ -36,8 +36,8 @@
   }
 
   define(function() {
-    const Config = require('helper/config');
-    return Match(Config);
+    const config = require('helper/config');
+    return Match(config);
   });
 
 })();

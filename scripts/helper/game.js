@@ -1,15 +1,15 @@
 (function(){
   "use strict";
 
-  function Game(Config, Player, Match) {
+  function Game(config, Player, Match) {
 
     const game = {
 
-      _default_rounds: Config.DEFAULT_ROUNDS,
-      _rounds: Config.DEFAULT_ROUNDS,
+      _default_rounds: config.DEFAULT_ROUNDS,
+      _rounds: config.DEFAULT_ROUNDS,
       _results: new Map(),
 
-      config(config = {'rounds': 0}) {
+      setRounds(config = {'rounds': 0}) {
         game._rounds = config.rounds || game._default_rounds;
         return this;
       },
@@ -70,17 +70,17 @@
       }
 
     },
-    {config, start, stats} = game;
+    {setRounds, start, stats} = game;
 
-    return {config, start, stats};
+    return {setRounds, start, stats};
   }
 
   define(function() {
     const
-      Config = require('helper/config'),
+      config = require('helper/config'),
       Player = require('helper/player'),
       Match = require('helper/match');
-    return new Game(Config, Player, Match);
+    return new Game(config, Player, Match);
   });
 
 })();
