@@ -5,19 +5,20 @@
 
     const game = {
 
-      _total_rounds: Config.DEFAULT_NB_ROUNDS,
+      _default_rounds: Config.DEFAULT_ROUNDS,
+      _rounds: Config.DEFAULT_ROUNDS,
       _results: new Map(),
 
-      config(config = {'total_rounds': 0}) {
-        game._total_rounds = config.total_rounds || game._total_rounds;
+      config(config = {'rounds': 0}) {
+        game._rounds = config.rounds || game._default_rounds;
         return this;
       },
 
       start() {
 
-        game._total_rounds = +Math.round(game._total_rounds);
+        game._rounds = +Math.round(game._rounds);
 
-        Array(game._total_rounds)
+        Array(game._rounds)
           .fill()
           .map((_) =>
             game._fight()
@@ -58,7 +59,6 @@
 
       stats() {
         //console.log(game);
-        //console.log(this);
         const
           rounds = game._getResultOf('rounds'),
           ties =  game._getResultOf('ties'),
