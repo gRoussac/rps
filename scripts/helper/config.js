@@ -3,7 +3,7 @@
 
   const
     config = {
-      "DEFAULT_NB_ROUNDS": 1000,
+      "DEFAULT_ROUNDS": 1000,
       "DEFAULT_CHOICES": ['Rock', 'Paper', 'Scissors']
     };
 

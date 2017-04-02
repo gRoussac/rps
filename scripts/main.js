@@ -9,23 +9,23 @@
 
   function(game, config) {
 
-    let total_rounds = config.DEFAULT_NB_ROUNDS;
+    let rounds = config.DEFAULT_ROUNDS;
 
     process.argv.reduce((previous, current) => {
       if (['-r', '--rounds'].find((arg) => previous === arg)) {
-        total_rounds = current;
+        rounds = current;
       }
       return current;
     });
 
-    total_rounds = +Math.round(total_rounds);
+    rounds = +Math.round(rounds);
 
-    if (isNaN(total_rounds) || !total_rounds) {
+    if (isNaN(rounds) || !rounds) {
       return console.warn('How many rounds ?');
     }
 
     game
-      .config({total_rounds})
+      .config({rounds})
       .start()
       .stats();
   });
