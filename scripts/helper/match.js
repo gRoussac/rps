@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  function Rule(Config) {
+  function Match(Config) {
 
     const choices = new Set(Config.DEFAULT_CHOICES);
 
@@ -27,7 +27,7 @@
 
   define(function() {
     const Config = require('helper/config');
-    return Rule(Config);
+    return Match(Config);
   });
 
 })();
