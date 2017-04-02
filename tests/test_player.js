@@ -55,14 +55,6 @@ describe('Player', function() {
       assert.equal(-1, expected.indexOf(choosen));
       Player.play.restore();
     });
-
-    xit('has called the Match getChoices function', function() {
-      const spy = sinon.spy();
-      const getChoices = Match.getChoices;
-      const proxy = getChoices([], spy);
-      assert(proxy.called);
-    });
-
   });
   describe('Random', function() {
     it('random.engines is an object', function(){

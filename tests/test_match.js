@@ -10,6 +10,7 @@ requirejs.config({
 should(); //[chai]http://chaijs.com/guide/styles/#should
 
 Match = requirejs('match');
+config = requirejs('config');
 
 describe('Match', function() {
   describe('CHOICES', function() {

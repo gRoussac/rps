@@ -12,5 +12,7 @@ should(); //[chai]http://chaijs.com/guide/styles/#should
 Game = requirejs('game');
 
 describe('Game', function() {
-
+	it('Game should be an object', function() {
+		Game.should.be.an('object');
+	});
 });

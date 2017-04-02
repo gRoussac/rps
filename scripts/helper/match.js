@@ -3,18 +3,12 @@
 
   function Match(config) {
 
-    const choices = new Set(config.DEFAULT_CHOICES);
-
     function _isTie(choices) {
       if (!choices.length) { return; }
       return choices.reduce((previous, current) => current === previous);
     }
 
     return {
-
-      getChoices() {
-        return choices;
-      },
 
       judge(...choices) {
 

@@ -21,12 +21,12 @@
   }
 
   define([
-    'match',
+    'config',
     'random-js'
   ],
-  function(Match, random) {
+  function(config, random) {
     const
-      choices = Match.getChoices(),
+      choices = new Set(config.DEFAULT_CHOICES),
       engine = random.engines.nativeMath,
       shuffle = (array) => random.shuffle(engine, array);
     return Player(choices, shuffle);
