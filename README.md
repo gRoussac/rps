@@ -17,8 +17,12 @@ Ex : `npm start -- -r 5000`.
 
 ## Build
 
+Run `npm run build` to build via [Gulp].
+
+Run `npm run build-watch` to run build on file change.
+
 ## Running unit tests
 
 Run `npm test` to execute the unit tests via [Mocha](https://mochajs.org/#getting-started).
 
-Run `npm watch` to keep tests executing.
+Run `npm watch` to run tests on file change.
