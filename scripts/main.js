@@ -7,9 +7,9 @@
     'helper/config'
   ],
 
-  function(Game, Config) {
+  function(game, config) {
 
-    let total_rounds = Config.DEFAULT_NB_ROUNDS;
+    let total_rounds = config.DEFAULT_NB_ROUNDS;
 
     process.argv.reduce((previous, current) => {
       if (['-r', '--rounds'].find((arg) => previous === arg)) {
@@ -24,9 +24,10 @@
       return console.warn('How many rounds ?');
     }
 
-    Game.config({total_rounds});
-    Game.start();
-    return console.info(Game.stats());
+    game
+      .config({total_rounds})
+      .start()
+      .stats();
   });
 
 })();
