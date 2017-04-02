@@ -21,7 +21,7 @@
   }
 
   define([
-    'helper/match',
+    'match',
     'random-js'
   ],
   function(match, random) {

@@ -35,7 +35,8 @@
     };
   }
 
-  define(['helper/config'], function(config) {
+
+  define(['config'], function(config) {
     return Match(config);
   });
 

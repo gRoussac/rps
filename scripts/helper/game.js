@@ -76,9 +76,9 @@
   }
 
   define([
-    'helper/config',
-    'helper/player',
-    'helper/match'
+    'config',
+    'player',
+    'match'
     ],
     function(config, Player, Match) {
       return new Game(config, Player, Match);

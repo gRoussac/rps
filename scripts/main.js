@@ -2,9 +2,14 @@
   "use strict";
 
   const requirejs = require('requirejs');
+  requirejs.config({
+      baseUrl: 'scripts/helper/',
+      nodeRequire: require
+  });
+
   requirejs([
-    'helper/game',
-    'helper/config'
+    'game',
+    'config'
   ],
 
   function(game, config) {
