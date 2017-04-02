@@ -27,12 +27,12 @@
       },
 
       _fight() {
-          const result = Match.judge(
-            Player.play(),
-            Player.play('Paper')
-          );
-          game._setResults(result);
-          return this;
+        const result = Match.judge(
+          Player.play(),
+          Player.play('Paper')
+        );
+        game._setResults(result);
+        return this;
       },
 
       _setResults(result) {
