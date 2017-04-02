@@ -10,7 +10,7 @@
       play(cheat = '') {
 
         if (cheat) {
-          return cheat.replace(REGEX_CAPITALIZE, letter => letter.toUpperCase());
+          return cheat.toLowerCase().replace(REGEX_CAPITALIZE, letter => letter.toUpperCase());
         }
 
         const [choice] = shuffle([...choices]);

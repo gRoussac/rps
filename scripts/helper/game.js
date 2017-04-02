@@ -27,34 +27,31 @@
       },
 
       _fight() {
-          const result = this._judge(
+          const result = Match.judge(
             Player.play(),
-            Player.play('paper')
+            Player.play('Paper')
           );
-          this._setResults(result);
-      },
-
-      _judge(...choices) {
-        if (Match.isTie(choices)) { return; }
-        return Match.judge(choices);
+          game._setResults(result);
+          return this;
       },
 
       _setResults(result) {
         if (!result) {
-          this._setResultOf('ties');
+          game._increment('ties');
         } else {
           const player = `player_${+result}`;
-          this._setResultOf(player);
+          game._increment(player);
         }
-        this._setResultOf('rounds');
+        game._increment('rounds');
+        return this;
       },
 
-      _setResultOf(key) {
-        this._results.set(key, this._getResultOf(key) + 1);
+      _increment(key) {
+        game._results.set(key, game._getResultOf(key) + 1);
       },
 
       _getResultOf(key) {
-        return this._results.get(key) || 0;
+        return game._results.get(key) || 0;
       },
 
       stats() {
