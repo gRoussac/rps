@@ -9,10 +9,13 @@
       _results: new Map(),
 
       config(config = {'total_rounds': 0}) {
-        game._total_rounds = +config.total_rounds || game._total_rounds;
+        game._total_rounds = config.total_rounds || game._total_rounds;
       },
 
       start() {
+
+        game.total_rounds = +Math.round(game.total_rounds);
+
         Array(game._total_rounds)
           .fill()
           .map((_) =>

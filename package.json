@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "test": "mocha --reporter spec tests",
-    "watch-test": "mocha --watch --reporter spec tests"
+    "watch": "mocha --watch --reporter spec tests"
   },
   "author": "Greg-Star",
   "license": "ISC",
