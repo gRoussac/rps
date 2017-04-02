@@ -75,12 +75,13 @@
     return {setRounds, start, stats};
   }
 
-  define(function() {
-    const
-      config = require('helper/config'),
-      Player = require('helper/player'),
-      Match = require('helper/match');
-    return new Game(config, Player, Match);
+  define([
+    'helper/config',
+    'helper/player',
+    'helper/match'
+    ],
+    function(config, Player, Match) {
+      return new Game(config, Player, Match);
   });
 
 })();

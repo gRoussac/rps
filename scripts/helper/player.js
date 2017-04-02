@@ -20,12 +20,15 @@
     };
   }
 
-  define(function() {
+  define([
+    'helper/match',
+    'random-js'
+  ],
+  function(match, random) {
     const
-      choices = require('helper/match').getChoices(),
-      Random = require('random-js'),
-      engine = Random.engines.nativeMath,
-      shuffle = (array) => Random.shuffle(engine, array);
+      choices = match.getChoices(),
+      engine = random.engines.nativeMath,
+      shuffle = (array) => random.shuffle(engine, array);
     return Player(choices, shuffle);
   });
 

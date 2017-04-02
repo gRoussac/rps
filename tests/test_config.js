@@ -1,7 +1,7 @@
-const {assert, expect, should} = require('chai');
 require("amd-loader");
-
-const config = require('../scripts/helper/config');
+const
+  {assert, expect, should} = require('chai'),
+  config = require('../scripts/helper/config');
 
 should(); //[chai]http://chaijs.com/guide/styles/#should
 

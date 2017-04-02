@@ -1,3 +1,4 @@
+
 (function(){
   "use strict";
 
@@ -35,8 +36,7 @@
     };
   }
 
-  define(function() {
-    const config = require('helper/config');
+  define(['helper/config'], function(config) {
     return Match(config);
   });
 
