@@ -22,9 +22,3 @@ Ex : `npm start -- -r 5000`.
 Run `npm test` to execute the unit tests via [Mocha](https://mochajs.org/#getting-started).
 
 Run `npm watch` to keep tests executing.
-
-## Running end-to-end tests
-
-Run `npm e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-##
