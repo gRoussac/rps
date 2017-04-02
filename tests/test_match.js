@@ -1,15 +1,21 @@
-require("amd-loader");
 const
-  {assert, expect, should} = require('chai');
+  {assert, expect, should} = require('chai'),
+  requirejs = require('requirejs');
+
+requirejs.config({
+    baseUrl: 'scripts/helper/',
+    //nodeRequire: require
+});
 
 should(); //[chai]http://chaijs.com/guide/styles/#should
 
-Match = require('../scripts/helper/match');
+Match = requirejs('match');
 
 describe('Match', function() {
   describe('CHOICES', function() {
-    it('should getChoices', function() {
-      console.log('Match  ' + Match);
+    it('should be an object', function() {
+        console.log(Match);
+        Match.should.be.an('object');
     });
   });
 });

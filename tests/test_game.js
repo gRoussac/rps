@@ -1,10 +1,15 @@
-require("amd-loader");
 const
-  {assert, expect, should} = require('chai');
+  {assert, expect, should} = require('chai'),
+  requirejs = require('requirejs');
+
+requirejs.config({
+    baseUrl: 'scripts/helper/',
+    //nodeRequire: require
+});
 
 should(); //[chai]http://chaijs.com/guide/styles/#should
 
-Game = require('../scripts/helper/game');
+Game = requirejs('game');
 
 describe('Game', function() {
 

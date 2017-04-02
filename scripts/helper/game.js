@@ -75,7 +75,7 @@
     return {setRounds, start, stats};
   }
 
-  define([
+  define('game', [
     'config',
     'player',
     'match'

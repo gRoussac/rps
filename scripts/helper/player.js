@@ -24,9 +24,9 @@
     'match',
     'random-js'
   ],
-  function(match, random) {
+  function(Match, random) {
     const
-      choices = match.getChoices(),
+      choices = Match.getChoices(),
       engine = random.engines.nativeMath,
       shuffle = (array) => random.shuffle(engine, array);
     return Player(choices, shuffle);

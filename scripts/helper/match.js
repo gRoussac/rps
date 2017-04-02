@@ -36,7 +36,7 @@
   }
 
 
-  define(['config'], function(config) {
+  define('match', ['config'], function(config) {
     return Match(config);
   });
 

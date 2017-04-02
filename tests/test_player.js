@@ -1,18 +1,21 @@
-require("amd-loader");
 const
-  {assert, expect, should} = require('chai');
+  {assert, expect, should} = require('chai'),
+  requirejs = require('requirejs');
+
+requirejs.config({
+    baseUrl: 'scripts/helper/',
+    //nodeRequire: require
+});
+
 should(); //[chai]http://chaijs.com/guide/styles/#should
-config = require('../scripts/helper/config');
-console.log(config);
-match = require('../scripts/helper/match');
-console.log(match);
-Player = require('../scripts/helper/player');
-console.log(Player);
+
+Player = requirejs('player');
+
 describe('Player', function() {
   describe('DEFAULT_ROUNDS', function() {
-    it('should be an instance of Player', function() {
-      console.log('YO  ' + Player);
-        // Player.should.be.an('object');
+    it('should be an object', function() {
+        console.log(Player);
+        Player.should.be.an('object');
     });
   });
 });

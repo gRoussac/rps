@@ -7,7 +7,7 @@
       "DEFAULT_CHOICES": ['Rock', 'Paper', 'Scissors']
     };
 
-  define(function() {
+  define('config', [], function() {
     return config;
   });
 

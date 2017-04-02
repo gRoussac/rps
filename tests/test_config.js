@@ -1,10 +1,17 @@
-require("amd-loader");
 const
   {assert, expect, should} = require('chai'),
-  config = require('../scripts/helper/config');
+  requirejs = require('requirejs');
+
+requirejs.config({
+    baseUrl: 'scripts/helper/',
+    //nodeRequire: require
+});
+
+//require("amd-loader");
 
 should(); //[chai]http://chaijs.com/guide/styles/#should
 
+config = requirejs('config');
 describe('Configuration', function() {
   describe('DEFAULT_ROUNDS', function() {
     it('should be an object', function() {
