@@ -2,23 +2,37 @@
   "use strict";
 
   const requirejs = require('requirejs');
+  requirejs.config({
+      baseUrl: 'scripts/helper/',
+      nodeRequire: require
+  });
+
   requirejs([
-    'helper/game',
-    'helper/config'
+    'game',
+    'config'
   ],
 
-  function(Game, Config) {
-    if (typeof process === 'undefined' || !process) {return;}
-    const [,,nb_round] = process.argv;
+  function(game, config) {
 
-    if (0 === +nb_round) {
-      return console.warn('no rounds ?');
+    let rounds = config.DEFAULT_ROUNDS;
+
+    process.argv.reduce((previous, current) => {
+      if (['-r', '--rounds'].find((arg) => previous === arg)) {
+        rounds = current;
+      }
+      return current;
+    });
+
+    rounds = +Math.round(rounds);
+
+    if (isNaN(rounds) || !rounds) {
+      return console.warn('How many rounds ?');
     }
 
-    const total_rounds = +nb_round || Config.DEFAULT_NB_ROUNDS;
-    Game.config({total_rounds});
-    Game.start();
-    return console.info(Game.stats());
+    game
+      .setRounds({rounds})
+      .start()
+      .stats();
   });
 
 })();

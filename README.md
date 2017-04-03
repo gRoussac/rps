@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
+# rps
+Rock - Paper - Scissors
 
-You can use the [editor on GitHub](https://github.com/gRoussac/rps/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Installation
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Run `npm install` (in package directory, no arguments) [npmjs](https://docs.npmjs.com/cli/install).
 
-### Markdown
+## Start
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Run `npm start` will start by default a game of 1000 rounds [npmjs](https://docs.npmjs.com/cli/start).
 
-```markdown
-Syntax highlighted code block
+Use the `-- -r, --rounds` flag for playing another number of match rounds.
 
-# Header 1
-## Header 2
-### Header 3
+Caution : the end of the options delimiter -- is important.
 
-- Bulleted
-- List
+Ex : `npm start -- -r 5000`.
 
-1. Numbered
-2. List
+## Build
 
-**Bold** and _Italic_ and `Code` text
+Run `npm run build` to build via [Gulp].
 
-[Link](url) and ![Image](src)
-```
+Run `npm run build-watch` to run buildgit gui on file change.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Running unit tests
 
-### Jekyll Themes
+Run `npm test` to execute the unit tests via [Mocha](https://mochajs.org/#getting-started).
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gRoussac/rps/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Run `npm test-watch` to run tests on file change.

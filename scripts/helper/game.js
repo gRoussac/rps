@@ -1,49 +1,52 @@
 (function(){
   "use strict";
 
-  function Game(Config, Player, Match) {
+  function Game(config, Player, Match) {
 
     const game = {
 
-      _total_rounds: Config.DEFAULT_NB_ROUNDS,
+      _default_rounds: config.DEFAULT_ROUNDS,
+      _rounds: config.DEFAULT_ROUNDS,
       _results: new Map(),
 
-      config(config = {'total_rounds': 0}) {
-        game._total_rounds = +config.total_rounds || game._total_rounds;
+      setRounds(config = {'rounds': 0}) {
+        game._rounds = config.rounds || game._default_rounds;
+        return this;
       },
 
       start() {
-        Array(game._total_rounds)
+
+        game._rounds = +Math.round(game._rounds);
+
+        Array(game._rounds)
           .fill()
           .map((_) =>
             game._fight()
           );
+        return this;
       },
 
       _fight() {
-          const result = game._judge(
-            Player.play(),
-            Player.play('paper')
-          );
-          game._setResults(result);
-      },
-
-      _judge(...choices) {
-        if (Match.isTie(choices)) { return; }
-        return Match.judge(choices);
+        const result = Match.judge(
+          Player.play(),
+          Player.play('Paper')
+        );
+        game._setResults(result);
+        return this;
       },
 
       _setResults(result) {
         if (!result) {
-          game._setResultOf('ties');
+          game._increment('ties');
         } else {
           const player = `player_${+result}`;
-          game._setResultOf(player);
+          game._increment(player);
         }
-        game._setResultOf('rounds');
+        game._increment('rounds');
+        return this;
       },
 
-      _setResultOf(key) {
+      _increment(key) {
         game._results.set(key, game._getResultOf(key) + 1);
       },
 
@@ -52,6 +55,7 @@
       },
 
       stats() {
+        //console.log(game);
         const
           rounds = game._getResultOf('rounds'),
           ties =  game._getResultOf('ties'),
@@ -61,21 +65,23 @@
           template.push(`"Player A wins ${player_1} of ${rounds} games"`);
           template.push(`"Player B wins ${player_2} of ${rounds} games"`);
           template.push(`"Tie: ${ties} of ${rounds} games"`);
-        return template.join('\n');
+        console.info(template.join('\n'));
+        return this;
       }
 
     },
-    {config, start, stats} = game;
+    {setRounds, start, stats} = game;
 
-    return {config, start, stats};
+    return {setRounds, start, stats};
   }
 
-  define(function() {
-    const
-      Config = require('helper/config'),
-      Player = require('helper/player'),
-      Match = require('helper/match');
-    return Game(Config, Player, Match);
+  define('game', [
+    'config',
+    'player',
+    'match'
+    ],
+    function(config, Player, Match) {
+      return new Game(config, Player, Match);
   });
 
 })();

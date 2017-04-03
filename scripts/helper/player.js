@@ -10,7 +10,7 @@
       play(cheat = '') {
 
         if (cheat) {
-          return cheat.replace(REGEX_CAPITALIZE, letter => letter.toUpperCase());
+          return cheat.toLowerCase().replace(REGEX_CAPITALIZE, letter => letter.toUpperCase());
         }
 
         const [choice] = shuffle([...choices]);
@@ -20,12 +20,15 @@
     };
   }
 
-  define(function() {
+  define([
+    'config',
+    'random-js'
+  ],
+  function(config, random) {
     const
-      choices = require('helper/match').getChoices(),
-      Random = require('random-js'),
-      engine = Random.engines.nativeMath,
-      shuffle = (array) => Random.shuffle(engine, array);
+      choices = new Set(config.DEFAULT_CHOICES),
+      engine = random.engines.nativeMath,
+      shuffle = (array) => random.shuffle(engine, array);
     return Player(choices, shuffle);
   });
 

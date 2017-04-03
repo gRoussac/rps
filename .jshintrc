@@ -1,6 +1,10 @@
 {
   "esversion": 6,
   "globals": {
-    "console": true
+    "console": true,
+    "require": true,
+    "process": true,
+    "describe": true,
+    "it": true
   }
 }

@@ -3,11 +3,11 @@
 
   const
     config = {
-      "DEFAULT_NB_ROUNDS": 1000,
+      "DEFAULT_ROUNDS": 1000,
       "DEFAULT_CHOICES": ['Rock', 'Paper', 'Scissors']
     };
 
-  define(function() {
+  define('config', [], function() {
     return config;
   });
 
