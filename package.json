@@ -21,6 +21,7 @@
     "sinon": "^2.1.0"
   },
   "dependencies": {
+    "requirejs": "^2.3.3",
     "random-js": "^1.0.8"
   }
 }
